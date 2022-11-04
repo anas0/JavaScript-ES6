@@ -1,11 +1,26 @@
-//ES6 fat arrow function with This keyword
-var javascript = {
-    name: 'Javascript',
-    libraries: ['React', 'Angular', 'Vue'],
-    printLibraries: function(){
-        var self = this;
-        this.libraries.forEach((a) => console.log(`${self.name} loves ${a}`));
-    }
-};
+const searchInput = document.querySelector('.search');
 
-javascript.printLibraries();
+const display = document.querySelector('.result');
+
+const thanks = document.querySelector('.thanks');
+
+// Normal Function thats work perfectly
+// function show(){
+//     display.innerHTML = this.value;
+//     var self = this;
+//     setTimeout(function(){        
+//         thanks.innerHTML = `You have typed: ${self.value}`;
+//     }, 1000);
+// }
+
+// const show = () => {
+//     display.innerHTML = this.value;
+// };
+
+// searchInput.addEventListener('keyup', show);
+
+
+//Arrow function not work for this
+searchInput.addEventListener('keyup', () => {
+    display.innerHTML = this.value;
+});
